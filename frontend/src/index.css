@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Enterprise Dark Theme - BlackBox AI */
+    --background: 220 25% 6%; /* #0B0F14 */
+    --foreground: 220 15% 90%; /* #E6E8EB */
+
+    --card: 220 25% 8%; /* #121821 */
+    --card-foreground: 220 15% 90%;
+
+    --popover: 220 25% 7%; /* #0F131A */
+    --popover-foreground: 220 15% 90%;
+
+    /* Primary Blue */
+    --primary: 214 100% 58%; /* #2F81F7 */
+    --primary-foreground: 220 25% 6%;
+
+    /* Secondary Green */
+    --secondary: 142 76% 36%; /* #22C55E */
+    --secondary-foreground: 220 25% 6%;
+
+    /* Muted Grays */
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 55%; /* #8A95A4 */
+
+    /* Accent Purple */
+    --accent: 262 83% 58%; /* #A78BFA */
+    --accent-foreground: 220 15% 90%;
+
+    /* Warning Orange */
+    --warning: 38 92% 50%; /* #F59E0B */
+    --warning-foreground: 220 25% 6%;
+
+    /* Danger Red */
+    --destructive: 0 84% 60%; /* #EF4444 */
+    --destructive-foreground: 220 15% 90%;
+
+    /* Success Green */
+    --success: 142 76% 36%; /* #22C55E */
+    --success-foreground: 220 25% 6%;
+
+    /* Borders & Inputs */
+    --border: 220 20% 20%; /* #1E2632 */
+    --input: 220 25% 12%;
+    --ring: 214 100% 58%;
+
+    --radius: 0.75rem; /* 12px */
+
+    /* Sidebar */
+    --sidebar-background: 220 25% 5%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 214 100% 58%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 25% 10%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 214 100% 58%;
+
+    /* Chart Colors */
+    --chart-1: 214 100% 58%; /* #2F81F7 */
+    --chart-2: 142 76% 36%; /* #22C55E */
+    --chart-3: 262 83% 58%; /* #A78BFA */
+    --chart-4: 38 92% 50%; /* #F59E0B */
+    --chart-5: 214 100% 70%; /* #60A5FA */
+    --chart-6: 0 84% 60%; /* #F43F5E */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .enterprise-card {
+    @apply bg-card border border-border rounded-xl shadow-sm;
+    transition: all 0.2s ease;
+  }
+
+  .enterprise-card:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+
+  .enterprise-button {
+    @apply bg-primary text-primary-foreground rounded-xl px-4 py-2 font-medium;
+    transition: all 0.2s ease;
+  }
+
+  .enterprise-button:hover {
+    @apply bg-primary/90;
+    transform: translateY(-1px);
+  }
+
+  .enterprise-button:focus {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  .enterprise-input {
+    @apply bg-input border border-border rounded-xl px-3 py-2;
+    transition: all 0.2s ease;
+  }
+
+  .enterprise-input:focus {
+    @apply border-primary ring-2 ring-primary/20;
+  }
+
+  .enterprise-table {
+    @apply w-full border-collapse;
+  }
+
+  .enterprise-table th {
+    @apply bg-muted/50 text-left px-4 py-3 text-sm font-medium text-muted-foreground border-b border-border;
+  }
+
+  .enterprise-table td {
+    @apply px-4 py-3 border-b border-border/50;
+  }
+
+  .enterprise-table tbody tr:hover {
+    @apply bg-muted/30;
+  }
+
+  .enterprise-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .enterprise-badge-success {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .enterprise-badge-warning {
+    @apply bg-warning/10 text-warning border border-warning/20;
+  }
+
+  .enterprise-badge-danger {
+    @apply bg-destructive/10 text-destructive border border-destructive/20;
+  }
+
+  .enterprise-badge-primary {
+    @apply bg-primary/10 text-primary border border-primary/20;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-muted/50 rounded;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
